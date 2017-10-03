@@ -69,10 +69,6 @@ public class DozePreferenceController extends PreferenceController implements
     @Override
     public boolean isAvailable() {
         String name = Build.IS_DEBUGGABLE ? SystemProperties.get("debug.doze.component") : null;
-        if (TextUtils.isEmpty(name) &&
-                SystemProperties.get("ro.settings.doze.hide.preference").equals("true")) {
-            return false;
-        }
         if (TextUtils.isEmpty(name)) {
             name = mContext.getResources().getString(
                     com.android.internal.R.string.config_dozeComponent);
